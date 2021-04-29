@@ -1,18 +1,10 @@
-const express = require('express');
-const serverData = require('./server.json');
-const cors = require('cors');
+const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router('./server.json');
+const middlewares = jsonServer.defaults();
+const port = process.env.PORT || 3333;
 
-const app = express();
+server.use(middlewares);
+server.use(router);
 
-app.use(cors());
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('Hellos')
-})
-
-app.get('/episodes', (req, res) => {
-  res.send({ data: serverData.episodes });
-});
-
-app.listen(process.env.PORT || 3000);
+server.listen(port);
