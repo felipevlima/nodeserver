@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/episodes', (req, res) => {
-  res.send({ data: serverData });
+  res.send({ data: serverData.episodes });
 });
 
 app.listen(process.env.PORT || 3000);
