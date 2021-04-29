@@ -5,6 +5,8 @@ const app = express();
 
 const port = 8080;
 
+app.use(cors());
+
 app.get('/episodes', (req, res) => {
   res.send(serverData);
 });
