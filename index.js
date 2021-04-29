@@ -15,4 +15,4 @@ app.get('/episodes', (req, res) => {
   res.send(serverData);
 });
 
-app.listen(process.envPORT || 3000);
+app.listen(process.env.PORT || 3000);
